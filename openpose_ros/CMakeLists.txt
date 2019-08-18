@@ -21,6 +21,7 @@ find_package(OpenCV REQUIRED)
 find_package(GFlags)
 find_package(Glog)
 find_package(OpenPose REQUIRED)
+find_package(Caffe REQUIRED HINTS /home/yunrongli/dev/caffe/build/install)
 
 catkin_package(
    INCLUDE_DIRS include
@@ -31,8 +32,7 @@ include_directories(
   include
   ${catkin_INCLUDE_DIRS}
   ${CUDA_INCLUDE_DIRS}
-  ${CAFFE_INCLUDE_DIRS}
-  ${OpenPose_INCLUDE_DIRS} 
+  ${OpenPose_INCLUDE_DIRS}
   ${GFLAGS_INCLUDE_DIR} 
   ${GLOG_INCLUDE_DIR} 
   ${OpenCV_INCLUDE_DIRS}
@@ -46,7 +46,8 @@ add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catk
 target_link_libraries(${PROJECT_NAME}_node
   ${catkin_LIBRARIES}
   ${OpenCV_LIBS}
-  ${OpenPose_LIBS} 
+  ${OpenPose_LIBS}
   ${GFLAGS_LIBRARY} 
   ${GLOG_LIBRARY} 
+  ${Caffe_LIBRARIES}
 )
