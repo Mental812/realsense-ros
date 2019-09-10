@@ -251,8 +251,7 @@ namespace realsense2_camera
         void set_sensor_auto_exposure_roi(rs2::sensor sensor);
         rs2_stream rs2_string_to_stream(std::string str);
         void startMonitoring();
-        void publish_temperature();
-
+        void publish_temperature();        
         rs2::device _dev;
         std::map<stream_index_pair, rs2::sensor> _sensors;
         std::map<std::string, std::function<void(rs2::frame)>> _sensors_callback;
